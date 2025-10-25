@@ -1,0 +1,18 @@
+public class NotificadorSMS extends EmpaquetableDecorador {
+
+    public NotificadorSMS(Empaquetable wrappee) {
+        super(wrappee);
+    }
+
+    @Override
+    public int cuentaPaquetes() {
+        int total = super.cuentaPaquetes();
+        enviarSMS(total);
+        return total;
+    }
+
+    private void enviarSMS(int unidades) {
+        System.out.println("📱 Enviando SMS al cliente: " +
+                           unidades + " unidades enviadas.");
+    }
+}
